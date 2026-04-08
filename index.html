@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timotius Ferdinand Wijayanta — Software Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- Scroll progress -->
+    <div class="scroll-bar" id="scroll-bar"></div>
+
+    <!-- BG Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- ── SOCIAL STRIP ── -->
+    <div class="social-strip">
+        <a href="https://wa.me/6281246843543" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/in/timotius-wijayanta" target="_blank" title="LinkedIn"><i
+                class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+
+    <!-- ── EMAIL STRIP ── -->
+    <div class="email-strip">
+        <a href="mailto:timotiuswijayanta@gmail.com">timotiuswijayanta@gmail.com</a>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+     NAV
+════════════════════════════════════════ -->
+    <nav id="main-nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo"><span>timotius</span>.dev</a>
+            <ul class="nav-links" style="counter-reset:nav-counter;">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#backend">Backend</a></li>
+                <li><a href="#frontend">Frontend</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="asset/CV Timotius Wijayanta.pdf" class="nav-resume">Resume</a>
+            <!-- Mobile -->
+            <button class="btn d-lg-none" style="color:var(--slate-l);font-size:1.5rem;" data-bs-toggle="offcanvas"
+                data-bs-target="#mobileMenu">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+    </nav>
+
+    <!-- Mobile Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu"
+        style="background:var(--navy);border-left:1px solid var(--navy4);">
+        <!-- <div class="offcanvas-header" style="border-bottom:1px solid var(--border)">
+        <a href="#hero" class="nav-logo"><span>timotius</span>.dev</a>
+    </div>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button> -->
+
+        <div class="offcanvas-header" style="border-bottom:1px solid var(--border)">
+            <a href="#hero" class="nav-logo"><span>timotius</span>.dev</a>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <div class="d-flex flex-column gap-2">
+                <a class="nav-link" style="color: var(--white);" href="#about">About</a>
+                <a class="nav-link" style="color: var(--white);" href="#experience">Experience</a>
+                <a class="nav-link" style="color: var(--white);" href="#backend">Backend</a>
+                <a class="nav-link" style="color: var(--white);" href="#frontend">Frontend</a>
+                <a class="nav-link" style="color: var(--white);" href="#contact">Contact</a>
+                <a href="asset/CV Timotius Wijayanta.pdf" class="nav-resume">Resume</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+    <div class="page-wrap">
+        <section id="hero">
+            <p class="hero-pre reveal">Hi, my name is</p>
+            <h1 class="hero-name reveal" style="transition-delay:0.1s">Timotius Ferdinand Wijayanta.</h1>
+            <h2 class="hero-sub reveal" style="transition-delay:0.2s">I build core banking systems.</h2>
+            <p class="hero-desc reveal" style="transition-delay:0.3s">
+                I'm a software engineer specializing in building and maintaining core banking systems,
+                and a full-stack developer focused on commercial web products. Currently developing
+                a core system for <span style="color:var(--teal)">wealth management</span> at Indonesia's largest bank.
+            </p>
+            <div class="hero-cta reveal" style="transition-delay:0.4s">
+                <a href="#backend" class="btn-solid"><i class="bi bi-server"></i> Backend Work</a>
+                <a href="#frontend" class="btn-teal"><i class="bi bi-window"></i> Frontend Work</a>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+       ABOUT
+  ════════════════════════════════════ -->
+        <section id="about">
+            <p class="sec-num reveal">01.</p>
+            <h2 class="sec-title reveal">About Me</h2>
+
+            <div class="about-grid reveal">
+                <div class="about-text">
+                    <p>
+                        Hello! I'm Timotius, a software engineer based in Jakarta, Indonesia with a passion
+                        for building robust, scalable backend systems — particularly for the financial industry.
+                        I've spent the last 3+ years deep inside core banking platforms, from retail accounts
+                        to wholesale treasury operations.
+                    </p>
+                    <p>
+                        I started my tech journey as a programming mentor and lab assistant at
+                        <a href="#experience">Universitas Atma Jaya Yogyakarta</a>, where I taught C, Java,
+                        and Computer Architecture. That foundation gave me a strong appreciation for
+                        how systems really work under the hood.
+                    </p>
+                    <p>
+                        Today I work with the <a href="#experience">Avaloq</a> core banking platform,
+                        developing wealth management solutions for Indonesia's largest bank (Bank Mandiri).
+                        I also build full-stack web applications on the side, bridging backend logic with
+                        clean user interfaces.
+                    </p>
+                    <p>Here are a few technologies I've been working with recently:</p>
+                    <ul class="skills-grid">
+                        <li>Java / Spring Boot</li>
+                        <li>Avaloq (ABL)</li>
+                        <li>Temenos T24</li>
+                        <li>JavaScript / Vue.js</li>
+                        <li>PostgreSQL / Oracle</li>
+                        <li>Python</li>
+                        <li>Docker / Kubernetes</li>
+                        <li>REST API / Kafka</li>
+                    </ul>
+                </div>
+
+                <div class="profile-pic-wrap">
+                    <div class="profile-pic-placeholder">
+                        <!-- <div class="initials-big">TW</div> -->
+                        <!-- <div class="hint-sm">Replace with photo</div> -->
+                        <img src="./assets/profile.jpeg" alt="Timotius Ferdinand Wijayanta" />
+
+                    </div>
+                    <!-- Ganti div profile-pic-placeholder di atas dengan:
+          <img src="./asset/profile.png" alt="Timotius Ferdinand Wijayanta" />
+        -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+       EXPERIENCE
+  ════════════════════════════════════ -->
+        <section id="experience">
+            <p class="sec-num reveal">02.</p>
+            <h2 class="sec-title reveal">Where I've Worked</h2>
+
+            <div class="exp-wrap reveal">
+                <div class="exp-tabs">
+                    <button class="exp-tab active" onclick="showTab(this,'tab-mandiri')">Bank Mandiri</button>
+                    <button class="exp-tab" onclick="showTab(this,'tab-fotress')">Fotress Data</button>
+                    <button class="exp-tab" onclick="showTab(this,'tab-jojonomic')">Jojonomic</button>
+                    <button class="exp-tab" onclick="showTab(this,'tab-uajy')">Atma Jaya Univ.</button>
+                </div>
+
+                <div class="exp-panels">
+
+                    <div class="exp-panel active" id="tab-mandiri">
+                        <h3>Avaloq Software Developer <span>@ Bank Mandiri</span></h3>
+                        <p class="exp-date">Apr 2024 — Present · Jakarta, Indonesia</p>
+                        <ul>
+                            <li>Developing solutions using the Avaloq core banking system, specifically for wealth
+                                management business including portfolio management, investment products, and client
+                                reporting.</li>
+                            <li>Building and customizing ABL (Avaloq Business Language) scripts for new feature rollouts
+                                across retail and private banking segments.</li>
+                            <li>Maintaining and optimizing application performance and reliability for high-volume
+                                transactional workloads.</li>
+                            <li>Collaborating with business analysts and QA teams to translate complex banking
+                                requirements into reliable system functionality.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-panel" id="tab-fotress">
+                        <h3>Temenos T24 Technical Consultant <span>@ Fotress Data Services</span></h3>
+                        <p class="exp-date">Jan 2023 — Apr 2024 · Jakarta, Indonesia</p>
+                        <ul>
+                            <li>Developed and implemented core banking systems using Temenos T24 for multiple Indonesian
+                                banks including Bank BOII, JTrust Bank, Ganesha Bank, and Harda International Bank.</li>
+                            <li>Handled end-to-end implementation: requirements gathering, gap analysis, customization,
+                                UAT support, and go-live.</li>
+                            <li>Built T24 routines, enquiries, versions, and local references to support retail and
+                                wholesale banking modules.</li>
+                            <li>Provided training and knowledge transfer to client IT teams post-implementation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-panel" id="tab-jojonomic">
+                        <h3>Officeless OS Implementor (App Dev) <span>@ Jojonomic</span></h3>
+                        <p class="exp-date">Dec 2021 — Feb 2022 · Remote</p>
+                        <ul>
+                            <li>Built low-code web applications for enterprise clients using JavaScript as the primary
+                                language.</li>
+                            <li>Developed an HR system for Bank Papua covering attendance, payroll automation, and KPI
+                                tracking modules.</li>
+                            <li>Worked directly with client stakeholders to gather requirements and iterate on UI/UX
+                                flows.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-panel" id="tab-uajy">
+                        <h3>Lecturer Assistant &amp; Research Assistant <span>@ Atma Jaya Yogyakarta</span></h3>
+                        <p class="exp-date">Aug 2019 — Jan 2023 · Yogyakarta, Indonesia</p>
+                        <ul>
+                            <li>Mentored students in C Programming, Java OOP, and Computer Architecture across multiple
+                                semesters.</li>
+                            <li>Developed lab assessments, quizzes, and practical exercises for IT faculty students.
+                            </li>
+                            <li>Worked as Student Research Assistant on Mobility Business Intelligence using Semantic
+                                Web — built semantic websites and SPARQL query generators using GraphDB for Mobility
+                                OLAP analysis.</li>
+                            <li>Published research contributions related to query generation for object movement
+                                diagnostic systems.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+       BACKEND PORTFOLIO
+  ════════════════════════════════════ -->
+        <section id="backend">
+            <p class="sec-num reveal">03.</p>
+            <h2 class="sec-title reveal">Backend Portfolio</h2>
+            <p class="reveal" style="margin-top:12px; font-size:0.92rem; max-width:600px;">
+                Core banking implementations, financial systems, and server-side infrastructure I've designed and built.
+            </p>
+
+            <div class="be-grid">
+
+                <div class="be-card reveal">
+                    <div class="be-card-top">
+                        <div class="be-icon"><i class="bi bi-bank"></i></div>
+                        <span class="be-badge">Core Banking</span>
+                    </div>
+                    <div class="be-title">Wealth Management System — Avaloq</div>
+                    <p class="be-desc">
+                        Developing core wealth management modules on the Avaloq platform for Bank Mandiri's
+                        private banking division. Covers portfolio management, subscription/redemption of
+                        investment products, and automated client reporting.
+                    </p>
+                    <div class="be-stack">
+                        <span>Avaloq ABL</span><span>Oracle DB</span><span>REST API</span><span>Java</span>
+                    </div>
+                    <div class="be-metric">
+                        Serving: <strong>Private Banking &amp; Wealth Clients</strong>
+                    </div>
+                </div>
+
+                <div class="be-card reveal" style="transition-delay:0.08s">
+                    <div class="be-card-top">
+                        <div class="be-icon"><i class="bi bi-building-check"></i></div>
+                        <span class="be-badge">Core Banking</span>
+                    </div>
+                    <div class="be-title">Temenos T24 Multi-Bank Implementation</div>
+                    <p class="be-desc">
+                        Full end-to-end T24 implementation across 4 Indonesian banks (Bank BOII, JTrust Bank,
+                        Ganesha Bank, Harda International Bank) — covering deposit, loan, CASA, and
+                        interbank modules.
+                    </p>
+                    <div class="be-stack">
+                        <span>Temenos T24</span><span>jBase</span><span>TAFC</span><span>SQL</span>
+                    </div>
+                    <div class="be-metric">
+                        Banks deployed: <strong>4 institutions</strong>
+                    </div>
+                </div>
+
+                <div class="be-card reveal" style="transition-delay:0.16s">
+                    <div class="be-card-top">
+                        <div class="be-icon"><i class="bi bi-people-fill"></i></div>
+                        <span class="be-badge">HR System</span>
+                    </div>
+                    <div class="be-title">HR &amp; Payroll System — Bank Papua</div>
+                    <p class="be-desc">
+                        Low-code enterprise HR system for Bank Papua handling employee attendance automation,
+                        monthly payroll disbursement calculations, and Key Performance Indicator tracking
+                        across all branch offices.
+                    </p>
+                    <div class="be-stack">
+                        <span>JavaScript</span><span>Jojonomic OS</span><span>REST API</span>
+                    </div>
+                    <div class="be-metric">
+                        Coverage: <strong>Multi-branch payroll automation</strong>
+                    </div>
+                </div>
+
+                <div class="be-card reveal" style="transition-delay:0.24s">
+                    <div class="be-card-top">
+                        <div class="be-icon"><i class="bi bi-diagram-3"></i></div>
+                        <span class="be-badge">Research / BI</span>
+                    </div>
+                    <div class="be-title">Mobility BI — Semantic Web Platform</div>
+                    <p class="be-desc">
+                        Research project building a semantic website to validate Mobility Business Intelligence
+                        models using GraphDB and SPARQL. Developed algorithms to auto-generate OLAP queries
+                        for diagnosing object movement patterns.
+                    </p>
+                    <div class="be-stack">
+                        <span>GraphDB</span><span>SPARQL</span><span>Semantic Web</span><span>Python</span>
+                    </div>
+                    <div class="be-metric">
+                        Context: <strong>Academic Research · Atma Jaya University</strong>
+                    </div>
+                </div>
+
+                <div class="be-card reveal" style="transition-delay:0.32s">
+                    <div class="be-card-top">
+                        <div class="be-icon"><i class="bi bi-arrow-left-right"></i></div>
+                        <span class="be-badge">Payment</span>
+                    </div>
+                    <div class="be-title">Interbank Settlement Module</div>
+                    <p class="be-desc">
+                        Configuration and customization of interbank settlement flows within Temenos T24,
+                        including RTGS, SKN, and internal fund transfer routing rules with
+                        full audit trail and reconciliation support.
+                    </p>
+                    <div class="be-stack">
+                        <span>T24 TAFC</span><span>RTGS Protocol</span><span>Oracle</span>
+                    </div>
+                    <div class="be-metric">
+                        Type: <strong>Real-time &amp; batch settlement</strong>
+                    </div>
+                </div>
+
+                <div class="be-card reveal" style="transition-delay:0.4s">
+                    <div class="be-card-top">
+                        <div class="be-icon"><i class="bi bi-shield-lock"></i></div>
+                        <span class="be-badge">Security / API</span>
+                    </div>
+                    <div class="be-title">Banking API Integration Layer</div>
+                    <p class="be-desc">
+                        Designed and implemented secure REST API integration layers between core banking
+                        platforms and third-party fintech services, including authentication middleware,
+                        rate limiting, and end-to-end encrypted data pipelines.
+                    </p>
+                    <div class="be-stack">
+                        <span>Java</span><span>Spring Boot</span><span>JWT/OAuth2</span><span>Docker</span>
+                    </div>
+                    <div class="be-metric">
+                        APIs secured: <strong>15+ integration endpoints</strong>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+       FRONTEND PORTFOLIO
+  ════════════════════════════════════ -->
+        <section id="frontend">
+            <p class="sec-num reveal">04.</p>
+            <h2 class="sec-title reveal">Frontend Portfolio</h2>
+            <p class="reveal" style="margin-top:12px; font-size:0.92rem; max-width:600px;">
+                Full-stack web projects and commercial sites I've designed and built — click titles to visit.
+            </p>
+
+            <!-- Featured -->
+            <div class="fe-header">
+                <p style="font-family:var(--font-mono);font-size:0.78rem;color:var(--teal);letter-spacing:0.08em;"
+                    class="reveal">// featured projects</p>
+            </div>
+
+            <!-- Featured 1 -->
+            <div class="fe-featured reveal">
+                <div class="fe-feat-img">
+                    <!-- <div class="fe-feat-img-ph">
+          <span style="font-size:0.75rem;">[ project screenshot — 16:9 ]</span>
+        </div> -->
+                    <a href="https://fervent-ptolemy-056361.netlify.app/" target="_blank"><img src="./assets/job1.png"
+                            alt="Project Name" /></a>
+
+                    <!-- Ganti dengan: <img src="./asset/job1.png" alt="Project Name"/> -->
+                </div>
+                <div class="fe-feat-info">
+                    <p class="fe-feat-tag">Featured Project</p>
+                    <h3 class="fe-feat-title"><a href="https://fervent-ptolemy-056361.netlify.app/"
+                            target="_blank">Agragendis Residence Websites</a></h3>
+                    <div class="fe-feat-box">
+                        <p>A full-stack web dashboard for visualizing and promote Agragendis Residence in Semarang,
+                            Central Java, Indonesia. This website include the information about housing price, facility,
+                            house design, location, overview
+                            and how to contact agent for more information and negotiation.
+                        </p>
+                    </div>
+                    <div class="fe-feat-tech">
+                        <span>Vue.js</span><span>Node.js</span><span>PostgreSQL</span><span>Tailwind CSS</span>
+                    </div>
+                    <div class="fe-feat-links">
+                        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://fervent-ptolemy-056361.netlify.app/" target="_blank"><i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured 2 (mirrored) -->
+            <div class="fe-featured right reveal">
+                <div class="fe-feat-img">
+                    <div class="fe-feat-img-ph">
+                        <span style="font-size:0.75rem;">[ project screenshot — 16:9 ]</span>
+                    </div>
+                </div>
+                <div class="fe-feat-info">
+                    <p class="fe-feat-tag">Featured Project</p>
+                    <h3 class="fe-feat-title"><a href="https://example.com" target="_blank">wedding Invitation</a></h3>
+                    <div class="fe-feat-box">
+                        <p>A responsive wedding invitation with simple and eficient design. This website fiture are:
+                            payment for gift, whishing box for those who whant to say something to bride and groom,
+                            galery photo and
+                            count down of wedding day.
+                        </p>
+                    </div>
+                    <div class="fe-feat-tech">
+                        <span>JavaScript</span><span>Bootstrap</span><span>REST API</span><span>Fire Base</span>
+                    </div>
+                    <div class="fe-feat-links">
+                        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://example.com" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other projects: scrollable row -->
+            <p class="fe-other-title reveal">// other projects I've built</p>
+
+            <div class="fe-grid-wrap reveal">
+                <div class="fe-grid">
+
+                    <div class="fe-card">
+                        <div class="fe-card-top">
+                            <i class="fas fa-folder-open fe-folder"></i>
+                            <div class="fe-card-links">
+                                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://mobsemolap.uajy.ac.id/#/" target="_blank"><i
+                                        class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <h4 class="fe-card-title"><a href="https://mobsemolap.uajy.ac.id/#/" target="_blank">Mobility BI
+                                Web App</a></h4>
+                        <p class="fe-card-desc">Semantic web frontend for the Mobility OLAP research project. Visualizes
+                            SPARQL query results from GraphDB into interactive movement analysis charts.</p>
+                        <div class="fe-card-tech">
+                            <span>Vuetify</span><span>Vue.js</span><span>SPARQL</span>
+                        </div>
+                    </div>
+
+                    <div class="fe-card">
+                        <div class="fe-card-top">
+                            <i class="fas fa-folder-open fe-folder"></i>
+                            <div class="fe-card-links">
+                                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://example.com" target="_blank"><i
+                                        class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <h4 class="fe-card-title"><a href="https://example.com" target="_blank">Personal Portfolio
+                                v1</a></h4>
+                        <p class="fe-card-desc">First iteration of this portfolio site — dark navy aesthetic with
+                            interactive particle canvas background and tabbed experience section.</p>
+                        <div class="fe-card-tech">
+                            <span>HTML</span><span>CSS</span><span>Bootstrap 5</span><span>Canvas API</span>
+                        </div>
+                    </div>
+
+                    <div class="fe-card">
+                        <div class="fe-card-top">
+                            <i class="fas fa-folder-open fe-folder"></i>
+                            <div class="fe-card-links">
+                                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                                <!-- <a href="https://example.com" target="_blank"><i class="fas fa-external-link-alt"></i></a> -->
+                            </div>
+                        </div>
+                        <h4 class="fe-card-title"><a href="https://example.com" target="_blank">E-Commerce Simple Back
+                                End</a></h4>
+                        <p class="fe-card-desc">I build simple back end for E-Commerce to demonstrate my spring boot
+                            project and reserve this project
+                            for the next biggest personal project and bussiness.
+                        </p>
+                        <div class="fe-card-tech">
+                            <span>Java Spring Boot</span><span>Postgree SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="fe-card">
+                        <div class="fe-card-top">
+                            <i class="fas fa-folder-open fe-folder"></i>
+                            <div class="fe-card-links">
+                                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://reliable-cascaron-47fe18.netlify.app/" target="_blank"><i
+                                        class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <h4 class="fe-card-title"><a href="https://reliable-cascaron-47fe18.netlify.app/"
+                                target="_blank">Asking For Date Website</a></h4>
+                        <p class="fe-card-desc">I made my personal webiste just for asking my girlfriend to dating with
+                            me. This website can be use by everyone also.
+                        </p>
+                        <div class="fe-card-tech">
+                            <span>JavaScript</span><span>html</span>
+                        </div>
+                    </div>
+
+                    <!-- <div class="fe-card">
+          <div class="fe-card-top">
+            <i class="fas fa-folder-open fe-folder"></i>
+            <div class="fe-card-links">
+              <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://example.com" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h4 class="fe-card-title"><a href="https://example.com" target="_blank">University Lab Quiz System</a></h4>
+          <p class="fe-card-desc">Online assessment platform for lab quiz delivery and auto-grading at Atma Jaya University. Supports multiple question types and student result exports.</p>
+          <div class="fe-card-tech">
+            <span>PHP</span><span>MySQL</span><span>Bootstrap</span>
+          </div>
+        </div>
+
+        <div class="fe-card">
+          <div class="fe-card-top">
+            <i class="fas fa-folder-open fe-folder"></i>
+            <div class="fe-card-links">
+              <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://example.com" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h4 class="fe-card-title"><a href="https://example.com" target="_blank">Bank Profile Website</a></h4>
+          <p class="fe-card-desc">Corporate profile website for a regional bank client, featuring product pages, branch locator, and downloadable annual report documents.</p>
+          <div class="fe-card-tech">
+            <span>HTML/CSS</span><span>JavaScript</span><span>Bootstrap</span>
+          </div>
+        </div> -->
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════
+       CONTACT
+  ════════════════════════════════════ -->
+        <section id="contact">
+            <p class="contact-pre reveal">05. what's next?</p>
+            <h2 class="reveal">Get In Touch</h2>
+            <p class="reveal">
+                I'm currently open to new opportunities — especially in fintech, banking systems, and
+                product engineering. Whether you have a question or just want to say hi, my inbox is always open.
+            </p>
+            <a href="mailto:timotiuswijayanta@gmail.com" class="btn-teal reveal" style="display:inline-flex;">
+                <i class="bi bi-send"></i> Say Hello
+            </a>
+
+            <div class="contact-cards reveal">
+                <a href="mailto:timotiuswijayanta@gmail.com" class="contact-card">
+                    <i class="bi bi-envelope-fill"></i>
+                    <div class="contact-card-info">
+                        <div class="lbl">Email</div>
+                        <div class="val">timotiuswijayanta@gmail.com</div>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/timotius-wijayanta" target="_blank" class="contact-card">
+                    <i class="bi bi-linkedin"></i>
+                    <div class="contact-card-info">
+                        <div class="lbl">LinkedIn</div>
+                        <div class="val">timotius-wijayanta</div>
+                    </div>
+                </a>
+                <a href="https://github.com/" target="_blank" class="contact-card">
+                    <i class="bi bi-github"></i>
+                    <div class="contact-card-info">
+                        <div class="lbl">GitHub</div>
+                        <div class="val">github.com/timotius</div>
+                    </div>
+                </a>
+                <a href="https://wa.me/6281246843543" target="_blank" class="contact-card">
+                    <i class="bi bi-whatsapp"></i>
+                    <div class="contact-card-info">
+                        <div class="lbl">WhatsApp</div>
+                        <div class="val">+6281246843543</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </div><!-- /page-wrap -->
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <p>Designed &amp; Built by <a href="#">Timotius Ferdinand Wijayanta</a></p>
+        <p style="margin-top:6px; font-size:0.65rem; opacity:0.5;">HTML · Bootstrap 5 · Vanilla JS</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script  src="script.js"></script>
+</body>
+
+</html>
